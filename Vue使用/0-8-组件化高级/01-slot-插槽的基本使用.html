@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<!--
+1.插槽的基本使用 <slot></slot>
+2.插槽的默认值 <slot>button</slot>
+3.如果有多个值, 同时放入到组件进行替换时, 一起作为替换元素
+
+1. 插槽的目的：为了让组件更加具有扩展性
+2. 让使用者 可以 决定组件内部的一些内容到底展示什么。
+3. 就是不在组件内 写死 让它可以操控  
+4. 就是使用同一个组件 组件内部也可以 组合其他的标签 形成不一样的独特的组件
+
+
+- 写组件的方法：
+1. 把一样的东西 写在组件里
+2. 不一样的东西  预留插槽
+插槽就好像预留一块空地一样 让你之后想干嘛就干嘛
+
+
+插槽的默认值：
+1. 如果你 组件 里没有传插槽 那么他就会使用默认值
+2. 使用情况： 你发现 插槽只有几个组件不一样  其他组件插槽都一样  就可以使用默认值 这样让你更方便
+-->
+
+<div id="app">
+  <cpn></cpn>
+
+  <cpn><span>哈哈哈</span></cpn>
+  <cpn><i>呵呵呵</i></cpn>
+  <cpn>
+    <i>呵呵呵</i>
+    <div>我是div元素</div>
+    <p>我是p元素</p>
+  </cpn>
+
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+  <cpn></cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+    <h2>我是组件</h2>
+    <p>我是组件, 哈哈哈</p>
+    <slot><button>按钮</button></slot>
+    <!--<button>按钮</button>-->
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

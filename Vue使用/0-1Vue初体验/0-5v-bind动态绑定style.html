@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+       <!-- <h2 :style="{fontSize: '100px'}">{{message}}</h2> -->
+       <h2 :style="{fontSize: fontSize + 'px'}">{{message}}</h2>
+    </div>
+
+    <script>
+        // let(变量) const(常量)
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: '你好',
+                fontSize: 200
+            },
+            
+        })
+    </script>
+
+</body>
+</html>

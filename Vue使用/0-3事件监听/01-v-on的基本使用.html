@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{counter}}</h2>
+  <!-- <button v-on:click="counter++" >+</button>
+  <button v-on:click="counter--">-</button> -->
+  <!-- <button v-on:click="a" >+</button>
+  <button v-on:click="b">-</button> -->
+  <button @click="a" >+</button>
+  <button @click="b">-</button>
+</div>
+
+<script src="../vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods:{
+      a(){
+        this.counter++
+      },
+      b(){
+        this.counter--
+      }
+    }
+  })
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- methods: {
+      increment() {
+        this.counter++
+      },
+      decrement() {
+        this.counter--
+      }
+    } -->
+</body>
+</html>

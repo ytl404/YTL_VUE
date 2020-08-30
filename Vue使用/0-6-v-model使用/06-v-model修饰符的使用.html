@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--1.修饰符: lazy-->
+  <!-- 默认情况下 双向绑定是 实时更新的
+    但是 有时你需要  按下回车键时 或者 失去焦点时  你才希望它更新
+    这时 你就可以使用 lazy
+  -->
+  <input type="text" v-model.lazy="message">
+  <h2>{{message}}</h2>
+
+
+  <!--2.修饰符: number-->
+  <!-- 
+    因为v-model 绑定的数据  默认会转化为 string 类型
+    当你 需要number 类型时 你可以使用这个修饰符
+   -->
+  <input type="number" v-model.number="age">
+  <h2>{{age}}-{{typeof age}}</h2>
+
+  <!--3.修饰符: trim-->
+  <!-- 有时 字符串 有很多 空格
+      你希望去掉它  这时 你可以使用 trim
+      当然他只去除 首尾空格
+  -->
+  <input type="text" v-model.trim="name">
+  <h2>您输入的名字:{{name}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊',
+      age: 0,
+      name: ''
+    }
+  })
+
+  var age = 0
+  age = '1111'
+  age = '222'
+</script>
+
+</body>
+</html>

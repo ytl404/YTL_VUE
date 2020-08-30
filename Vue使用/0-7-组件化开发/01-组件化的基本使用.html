@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!--3.使用组件-->
+    <!-- <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn> -->
+
+    <!-- <div>
+      <div>
+        <my-cpn></my-cpn>
+      </div>
+    </div> -->
+
+    <my-zj></my-zj>
+    <my-zj></my-zj>
+    <my-zj></my-zj>
+  </div>
+
+  <!-- <my-cpn></my-cpn> -->
+
+  <script src="../vue.js"></script>
+  <script>
+    
+    // 1.创建组件构造器对象
+    // const cpnC = Vue.extend({
+    //   template: `
+    //     <div>
+    //       <h2>我是标题</h2>
+    //       <p>我是内容, 哈哈哈哈</p>
+    //       <p>我是内容, 呵呵呵呵</p>
+    //     </div>`
+    // })
+    const max = Vue.extend({
+      template: `
+        <div>
+          <h2>你好</h2>
+          <p>哈哈</p>
+          <p>爱你</p>
+      </div>
+      `
+    })
+
+    // 全局组件 这种注册组件的方式  就是  全局组件
+    // 全局组件  就是  可以在多个 Vue 实例下使用
+    // 2.注册组件
+    // Vue.component('my-cpn', cpnC)
+    // Vue.component('组件名', 创建构造器对象名)
+    Vue.component('my-zj', max);
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊'
+      }
+    })
+  </script>
+
+</body>
+
+</html>

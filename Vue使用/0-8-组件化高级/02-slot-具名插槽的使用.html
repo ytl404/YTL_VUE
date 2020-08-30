@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+  <!-- 有时，插槽要放置不同的东西
+        但是，你改插槽时 又会改动所有的插槽
+        所以，这时给插槽取个名字，就非常重要
+        具名插槽
+  -->
+
+<div id="app">
+  <!-- <cpn><span slot="center">标题</span></cpn>
+  <cpn><button slot="left">返回</button></cpn> -->
+  <!-- <cpn> <span>标题</span> </cpn> -->
+  <cpn> <span slot="left" >标题</span> </cpn>
+</div>
+
+
+<template id="cpn">
+  <div>
+    <slot name="left"><span>左边</span></slot>
+    <slot name="center"><span>中间</span></slot>
+    <slot name="right"><span>右边</span></slot>
+    <!-- <slot> <span>左</span> </slot>
+    <slot> <span>中</span> </slot>
+    <slot> <span>右</span> </slot> -->
+  </div>
+</template>
+
+<script src="../vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你好啊'
+    },
+    components: {
+      cpn: {
+        template: '#cpn'
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

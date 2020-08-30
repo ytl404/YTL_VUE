@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <!--1. .stop修饰符的使用  不事件冒泡-->
+    <div @click="stops1">aaa
+      <button @click.stop="stops">按钮一</button>
+    </div>
+    <!--2. .prevent修饰符的使用   阻止默认事件-->
+    <br>
+    <form action="baidu">
+      <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+    <!--3. .监听某个键盘的键帽 .enter监听回车键  其他键要去找一下别名 -->
+    <input type="text" @keyup.enter="keyups">
+
+    <!--4. .once修饰符的使用  只执行一次-->
+    <button @click.once="click2">按键2</button>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: '你好啊'
+      },
+      methods: {
+        stops() {
+          console.log("stops");
+        },
+        stops1() {
+          console.log("stops1");
+          
+        },
+        submitClick(){
+          console.log("submitClick");
+        },
+        keyups(){
+          console.log("keyups");
+        },
+        click2(){
+          console.log("click2");
+        }
+      }
+    })
+  </script>
+
+</body>
+
+</html>
